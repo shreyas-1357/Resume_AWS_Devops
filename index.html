@@ -1,243 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Shreyas Sonawane | AWS & DevOps Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    /* ===== PAGE SETUP ===== */
-    @page {
-      size: A4;
-      margin: 0;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #e5e7eb;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
-      color: #1f2937;
-    }
-
-    .page {
-      width: 210mm;
-      height: 297mm;
-      margin: auto;
-      background: #ffffff;
-      box-sizing: border-box;
-      padding: 16mm;
-    }
-
-    /* ===== HEADER ===== */
-    .header {
-      background: #1e3a8a;
-      color: #ffffff;
-      padding: 12px 14px;
-      margin: -16mm -16mm 10px -16mm;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: 0.5px;
-    }
-
-    .header p {
-      margin: 4px 0 6px;
-      font-size: 12px;
-      color: #dbeafe;
-    }
-
-    .contact {
-      font-size: 10.5px;
-      line-height: 1.4;
-    }
-
-    /* ===== LAYOUT ===== */
-    .content {
-      display: flex;
-      gap: 14px;
-    }
-
-    .left {
-      width: 30%;
-    }
-
-    .right {
-      width: 70%;
-    }
-
-    /* ===== SECTIONS ===== */
-    .section {
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      background: #1e40af;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 11px;
-      padding: 3px 6px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-    }
-
-    .text {
-      line-height: 1.4;
-    }
-
-    ul {
-      padding-left: 16px;
-      margin: 4px 0;
-    }
-
-    li {
-      margin-bottom: 3px;
-    }
-
-    .job {
-      margin-bottom: 8px;
-    }
-
-    .job-title {
-      font-weight: bold;
-      font-size: 11px;
-    }
-
-    .job-meta {
-      font-size: 10px;
-      color: #4b5563;
-    }
-
-    .skills p {
-      margin: 2px 0;
-    }
-
-    /* ===== PRINT ===== */
-    @media print {
-      body {
-        background: #ffffff;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyas Sonawane - AWS DevOps Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        
+        .download-btn:hover {
+            background: #000;
+        }
+        
+        .resume-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        #resume-content {
+            width: 210mm;
+            height: 297mm;
+            padding: 15mm;
+            font-size: 10.5pt;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 22pt;
+            margin-bottom: 5px;
+            color: #000;
+        }
+        
+        .header .contact {
+            font-size: 9pt;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .section {
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #000;
+            border-bottom: 1px solid #333;
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .left-column {
+            width: 30%;
+        }
+        
+        .right-column {
+            width: 70%;
+        }
+        
+        .content-text {
+            font-size: 9.5pt;
+            line-height: 1.4;
+            text-align: justify;
+        }
+        
+        .skill-group {
+            margin-bottom: 6px;
+            font-size: 9.5pt;
+        }
+        
+        .skill-group strong {
+            color: #000;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        
+        .company {
+            font-size: 9pt;
+            color: #555;
+        }
+        
+        .date {
+            font-size: 9pt;
+            color: #666;
+            white-space: nowrap;
+        }
+        
+        .experience-item {
+            margin-bottom: 10px;
+        }
+        
+        .experience-item ul {
+            margin-left: 18px;
+            margin-top: 3px;
+        }
+        
+        .experience-item li {
+            margin-bottom: 2px;
+            font-size: 9.5pt;
+            line-height: 1.3;
+        }
+        
+        .project-item {
+            margin-bottom: 8px;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            font-size: 9.5pt;
+        }
+        
+        .project-tech {
+            font-size: 8.5pt;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .project-item ul {
+            margin-left: 18px;
+            margin-top: 2px;
+        }
+        
+        .project-item li {
+            font-size: 9pt;
+            line-height: 1.3;
+            margin-bottom: 1px;
+        }
+        
+        .edu-item {
+            margin-bottom: 5px;
+            font-size: 9.5pt;
+        }
+        
+        .edu-item strong {
+            display: block;
+        }
+        
+        .simple-list {
+            margin-left: 18px;
+        }
+        
+        .simple-list li {
+            margin-bottom: 2px;
+            font-size: 9pt;
+        }
+        
+        .instructions {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .download-btn, .instructions {
+                display: none;
+            }
+            .resume-container {
+                box-shadow: none;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="page">
+    <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+    
+    <div class="resume-container">
+        <div id="resume-content">
+            <div class="header">
+                <h1>SHREYAS SANTOSH SONAWANE</h1>
+                <div class="contact">
+                    +91-9022749704 | shreyassonawane135@gmail.com | Pune, Maharashtra<br>
+                    LinkedIn: linkedin.com/in/shreyas-sonawane-63a22524b/ | GitHub: github.com/shreyas-1357
+                </div>
+            </div>
 
-    <!-- HEADER -->
-    <div class="header">
-      <h1>SHREYAS SANTOSH SONAWANE</h1>
-      <p>AWS & DevOps Engineer | On-Job Trainee</p>
-      <div class="contact">
-        📞 +91-9022749704 |
-        ✉️ shreyassonawane135@gmail.com |
-        📍 Pune, Maharashtra<br />
-        GitHub: github.com/shreyas-1357 |
-        LinkedIn: linkedin.com/in/shreyas-sonawane-63a22524b
-      </div>
+            <div class="section">
+                <div class="section-title">Professional Summary</div>
+                <div class="content-text">
+                    AWS and DevOps Engineer with hands-on experience in cloud infrastructure, CI/CD automation, and containerization. Proficient in AWS services, Terraform, Docker, Kubernetes, and Jenkins. Strong background in backend development with Spring Boot and RESTful APIs.
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="left-column">
+                    <div class="section">
+                        <div class="section-title">Technical Skills</div>
+                        <div class="skill-group">
+                            <strong>Cloud:</strong> AWS (EC2, S3, VPC, RDS, IAM, CloudWatch, Lambda)
+                        </div>
+                        <div class="skill-group">
+                            <strong>DevOps:</strong> Jenkins, GitHub Actions, Terraform, Ansible, Docker, Kubernetes
+                        </div>
+                        <div class="skill-group">
+                            <strong>Programming:</strong> Python, Bash, Java
+                        </div>
+                        <div class="skill-group">
+                            <strong>Backend:</strong> Spring Boot, RESTful APIs
+                        </div>
+                        <div class="skill-group">
+                            <strong>Database:</strong> MySQL, MongoDB
+                        </div>
+                        <div class="skill-group">
+                            <strong>OS:</strong> Linux, Windows Server
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Education</div>
+                        <div class="edu-item">
+                            <strong>B.E. Electronics and Computer</strong>
+                            Amrutvahini College of Engineering<br>
+                            CGPA: 8.80/10 | 2021-2025
+                        </div>
+                        <div class="edu-item">
+                            <strong>HSC</strong>
+                            Shree Ganesh Junior College<br>
+                            86% | 2021
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Certifications</div>
+                        <ul class="simple-list">
+                            <li>AWS and DevOps Training</li>
+                            <li>Docker and Kubernetes</li>
+                            <li>Terraform for IaC</li>
+                            <li>Spring Boot and Java</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="section">
+                        <div class="section-title">Professional Experience</div>
+                        
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">DevOps Engineer (OJT)</div>
+                                    <div class="company">Cipheren Technology, Pune</div>
+                                </div>
+                                <div class="date">Dec 2024 - Mar 2025</div>
+                            </div>
+                            <ul>
+                                <li>Designed AWS infrastructure using EC2, S3, VPC, RDS, and IAM for development environments</li>
+                                <li>Built CI/CD pipelines with Jenkins and GitHub Actions for automated deployments</li>
+                                <li>Automated infrastructure provisioning using Terraform modules</li>
+                                <li>Containerized applications with Docker and deployed on AWS EC2</li>
+                                <li>Configured CloudWatch monitoring and implemented security policies</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Java Backend Intern</div>
+                                    <div class="company">Motion Cut Pvt. Ltd, Remote</div>
+                                </div>
+                                <div class="date">Dec 2023 - Jan 2024</div>
+                            </div>
+                            <ul>
+                                <li>Developed RESTful APIs using Spring Boot and JPA for backend services</li>
+                                <li>Integrated microservices into Docker containers</li>
+                                <li>Set up CI using Git, GitHub, and Maven for automated builds</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Key Projects</div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">AWS Infrastructure Automation</div>
+                            <div class="project-tech">Terraform, CloudFormation, AWS CLI</div>
+                            <ul>
+                                <li>Automated AWS resource provisioning with Terraform modules</li>
+                                <li>Implemented security policies using IAM and CloudWatch monitoring</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-title">CI/CD Pipeline Implementation</div>
+                            <div class="project-tech">Jenkins, GitHub Actions, Maven, Docker</div>
+                            <ul>
+                                <li>Built automated pipelines for Java microservices deployment</li>
+                                <li>Configured Jenkins master-slave architecture for distributed builds</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-title">Certificate Automation System</div>
+                            <div class="project-tech">Python, Streamlit, Gmail API, Docker</div>
+                            <ul>
+                                <li>Developed automated certificate generation and email distribution system</li>
+                                <li>Deployed containerized application on AWS EC2</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-title">Task Management System</div>
+                            <div class="project-tech">Spring Boot, MySQL, Docker, GitHub Actions</div>
+                            <ul>
+                                <li>Built RESTful APIs for task management with automated deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Additional Information</div>
+                        <div style="font-size: 9pt;">
+                            <strong>Achievements:</strong> Smart India Hackathon 2024, SunHack International Hackathon 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- CONTENT -->
-    <div class="content">
-
-      <!-- LEFT COLUMN -->
-      <div class="left">
-
-        <div class="section">
-          <div class="section-title">Summary</div>
-          <div class="text">
-            AWS & DevOps trainee with hands-on experience in cloud infrastructure,
-            CI/CD automation, containerization, and backend systems. Strong focus
-            on automation, scalability, and production-ready deployments.
-          </div>
-        </div>
-
-        <div class="section skills">
-          <div class="section-title">Skills</div>
-          <p><b>Cloud:</b> AWS (EC2, S3, VPC, IAM, RDS, CloudWatch)</p>
-          <p><b>DevOps:</b> Jenkins, GitHub Actions, Git, Maven</p>
-          <p><b>IaC:</b> Terraform, CloudFormation</p>
-          <p><b>Containers:</b> Docker, Kubernetes (EKS)</p>
-          <p><b>Monitoring:</b> Prometheus, Grafana</p>
-          <p><b>Languages:</b> Python, Bash, Java</p>
-          <p><b>Backend:</b> Spring Boot, REST APIs</p>
-          <p><b>DB:</b> MySQL, MongoDB</p>
-          <p><b>OS:</b> Linux, Windows Server</p>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Education</div>
-          <div class="text">
-            <b>B.E. Electronics & Computer</b><br />
-            Amrutvahini College of Engineering<br />
-            CGPA: 8.80 | 2021–2025
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Certifications</div>
-          <ul>
-            <li>AWS & DevOps Training</li>
-            <li>Docker & Kubernetes</li>
-            <li>Terraform (IaC)</li>
-            <li>Core Java & Spring Boot</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="right">
-
-        <div class="section">
-          <div class="section-title">Experience</div>
-
-          <div class="job">
-            <div class="job-title">DevOps Engineer (OJT)</div>
-            <div class="job-meta">Cipheren Technology | Pune | Dec 2024 – Mar 2025</div>
-            <ul>
-              <li>Provisioned AWS infrastructure using Terraform</li>
-              <li>Built CI/CD pipelines with Jenkins & GitHub Actions</li>
-              <li>Dockerized applications and deployed on EC2</li>
-              <li>Configured monitoring and alerts using CloudWatch</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-title">Java Backend Intern</div>
-            <div class="job-meta">Motion Cut Pvt. Ltd | Remote | Dec 2023 – Jan 2024</div>
-            <ul>
-              <li>Developed REST APIs using Spring Boot & JPA</li>
-              <li>Implemented authentication with Spring Security</li>
-              <li>Containerized services using Docker</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Key Projects</div>
-
-          <ul>
-            <li><b>AWS Infrastructure Automation:</b> Terraform-based EC2, S3, VPC provisioning</li>
-            <li><b>CI/CD Pipelines:</b> Automated build & deployment using Jenkins</li>
-            <li><b>Certificate Automation:</b> Python + Gmail API on AWS EC2</li>
-            <li><b>Task Management System:</b> Spring Boot backend with Docker</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Additional</div>
-          <div class="text">
-            <b>Strengths:</b> Automation mindset, quick learner, problem-solver<br />
-            <b>Interests:</b> Cloud architecture, DevOps tooling
-          </div>
-        </div>
-
-      </div>
+    <div class="instructions">
+        <p>Click "Download PDF" to save your resume or use Ctrl+P / Cmd+P to print</p>
     </div>
-  </div>
+
+    <script>
+        function downloadPDF() {
+            var element = document.getElementById('resume-content');
+            var opt = {
+                margin: 0,
+                filename: 'Shreyas_Sonawane_AWS_DevOps_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPdf: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
 </body>
 </html>
