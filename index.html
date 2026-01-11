@@ -1,0 +1,274 @@
+import React from 'react';
+import { Download, Mail, Phone, Linkedin, Github, Globe, MapPin } from 'lucide-react';
+
+export default function AWSDevOpsResume() {
+  const handlePrint = () => {
+    window.print();
+  };
+
+  return (
+    <>
+      <style>{`
+        @media print {
+          .no-print { display: none !important; }
+          body { margin: 0; padding: 0; }
+          .resume-container { box-shadow: none !important; margin: 0 !important; }
+        }
+        @page {
+          size: A4;
+          margin: 0;
+        }
+      `}</style>
+      
+      <div className="min-h-screen bg-gray-100 py-4 px-2">
+        <button
+          onClick={handlePrint}
+          className="no-print fixed top-4 right-4 bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition shadow-lg z-10"
+        >
+          <Download size={20} />
+          Download/Print as PDF
+        </button>
+
+        <div className="resume-container max-w-[210mm] mx-auto bg-white shadow-xl" style={{ height: '297mm' }}>
+          <div className="h-full flex flex-col p-8 text-xs">
+            
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-4 -mx-8 -mt-8 mb-4">
+              <h1 className="text-2xl font-bold mb-1">SHREYAS SANTOSH SONAWANE</h1>
+              <p className="text-sm mb-2 text-blue-100">AWS & DevOps Engineer | On-Job Trainee</p>
+              <div className="flex flex-wrap gap-3 text-xs">
+                <span className="flex items-center gap-1"><Phone size={12} /> +91-9022749704</span>
+                <span className="flex items-center gap-1"><Mail size={12} /> shreyassonawane135@gmail.com</span>
+                <span className="flex items-center gap-1"><MapPin size={12} /> Pune, Maharashtra</span>
+              </div>
+              <div className="flex flex-wrap gap-3 text-xs mt-1">
+                <span className="flex items-center gap-1"><Linkedin size={12} /> linkedin.com/in/shreyas-sonawane-63a22524b/</span>
+                <span className="flex items-center gap-1"><Github size={12} /> github.com/shreyas-1357</span>
+              </div>
+            </div>
+
+            {/* Two Column Layout */}
+            <div className="flex gap-4 flex-1">
+              
+              {/* Left Column */}
+              <div className="w-1/3 space-y-3">
+                
+                {/* Professional Summary */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">PROFESSIONAL SUMMARY</h2>
+                  <p className="text-xs leading-relaxed text-gray-700">
+                    Motivated AWS & DevOps On-Job Trainee with hands-on experience in cloud infrastructure, CI/CD automation, and containerization. Skilled in deploying scalable applications using AWS services, Terraform, Docker, and Kubernetes. Strong foundation in backend development with proven ability to automate workflows and optimize deployments.
+                  </p>
+                </section>
+
+                {/* Technical Skills */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">TECHNICAL SKILLS</h2>
+                  <div className="space-y-2">
+                    <div>
+                      <p className="font-semibold text-gray-800">Cloud Platform</p>
+                      <p className="text-gray-700">AWS (EC2, S3, VPC, RDS, IAM, CloudWatch, ELB, Auto Scaling, Route 53, CloudFormation, Lambda, EFS)</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">DevOps Tools</p>
+                      <p className="text-gray-700">Jenkins, GitHub Actions, GitLab CI/CD, Maven</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">IaC & Config Mgmt</p>
+                      <p className="text-gray-700">Terraform, Ansible, AWS CloudFormation</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Containers</p>
+                      <p className="text-gray-700">Docker, Kubernetes (EKS), Docker Compose</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Monitoring</p>
+                      <p className="text-gray-700">CloudWatch, Prometheus, Grafana</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Version Control</p>
+                      <p className="text-gray-700">Git, GitHub, Bitbucket</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Programming</p>
+                      <p className="text-gray-700">Python, Bash, Java</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Backend Stack</p>
+                      <p className="text-gray-700">Spring Boot, Spring MVC, JPA, RESTful APIs</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Databases</p>
+                      <p className="text-gray-700">MySQL, MongoDB</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">OS</p>
+                      <p className="text-gray-700">Linux (Ubuntu, Amazon Linux, CentOS), Windows Server</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Education */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">EDUCATION</h2>
+                  <div className="space-y-2">
+                    <div>
+                      <p className="font-semibold text-gray-800">B.E. Electronics & Computer</p>
+                      <p className="text-gray-700">Amrutvahini College of Engineering</p>
+                      <p className="text-gray-600">CGPA: 8.80/10 | 2021-2025</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">HSC</p>
+                      <p className="text-gray-700">Shree Ganesh Junior College</p>
+                      <p className="text-gray-600">86% | 2021</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">SSC</p>
+                      <p className="text-gray-700">St. John School, Rahata</p>
+                      <p className="text-gray-600">79% | 2019</p>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Certifications */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">CERTIFICATIONS</h2>
+                  <ul className="space-y-1 text-gray-700">
+                    <li>• AWS & DevOps Training (Fusion Software Institute)</li>
+                    <li>• Docker & Kubernetes</li>
+                    <li>• Terraform for IaC</li>
+                    <li>• Core Java & Spring Boot</li>
+                    <li>• Python for Automation</li>
+                  </ul>
+                </section>
+
+                {/* Achievements */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">ACHIEVEMENTS</h2>
+                  <ul className="space-y-1 text-gray-700">
+                    <li>• Smart India Hackathon 2024 Participant</li>
+                    <li>• SunHack's International Hackathon 2022</li>
+                  </ul>
+                </section>
+              </div>
+
+              {/* Right Column */}
+              <div className="w-2/3 space-y-3">
+                
+                {/* Professional Experience */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">PROFESSIONAL EXPERIENCE</h2>
+                  
+                  <div className="mb-3">
+                    <div className="flex justify-between items-start mb-1">
+                      <div>
+                        <h3 className="font-bold text-gray-800">DevOps Engineer (OJT)</h3>
+                        <p className="text-gray-600 italic">Cipheren Technology | Pune, Maharashtra</p>
+                      </div>
+                      <p className="text-gray-600 text-xs">Dec 2024 - Mar 2025</p>
+                    </div>
+                    <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2">
+                      <li>Designed and configured AWS infrastructure (EC2, S3, VPC, IAM, RDS) for development environments</li>
+                      <li>Implemented CI/CD pipelines using Jenkins and GitHub Actions for automated deployments</li>
+                      <li>Automated infrastructure provisioning with Terraform modules for EC2, S3, and VPC</li>
+                      <li>Developed Python-based certificate automation system using Streamlit and Gmail API</li>
+                      <li>Containerized applications using Docker and deployed on AWS EC2 instances</li>
+                      <li>Configured CloudWatch for monitoring, logging, and automated alerting</li>
+                      <li>Implemented IAM roles, policies, and security groups for access control</li>
+                      <li>Built RESTful APIs using Spring Boot for task management backend automation</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-start mb-1">
+                      <div>
+                        <h3 className="font-bold text-gray-800">Java Backend Development Intern</h3>
+                        <p className="text-gray-600 italic">Motion Cut Pvt. Ltd | Remote</p>
+                      </div>
+                      <p className="text-gray-600 text-xs">Dec 2023 - Jan 2024</p>
+                    </div>
+                    <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2">
+                      <li>Developed RESTful APIs using Spring Boot, Spring MVC, and JPA for CRUD operations</li>
+                      <li>Integrated microservices into Docker containers for improved deployment efficiency</li>
+                      <li>Set up continuous integration using Git, GitHub, and Maven for automated builds</li>
+                      <li>Implemented Spring Security for user authentication and authorization</li>
+                      <li>Utilized MongoDB for data storage in microservices architecture</li>
+                    </ul>
+                  </div>
+                </section>
+
+                {/* Key Projects */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">KEY PROJECTS</h2>
+                  
+                  <div className="space-y-2">
+                    <div>
+                      <h3 className="font-semibold text-gray-800">AWS Infrastructure Automation</h3>
+                      <p className="text-xs text-gray-600 italic">Terraform | AWS CLI | CloudFormation | CloudWatch</p>
+                      <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2 mt-0.5">
+                        <li>Automated provisioning of AWS infrastructure using Terraform modules</li>
+                        <li>Created reusable modules for EC2, S3, VPC, and security groups</li>
+                        <li>Implemented security policies using IAM roles and CloudWatch monitoring</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800">CI/CD Pipeline Implementation</h3>
+                      <p className="text-xs text-gray-600 italic">Jenkins | GitHub Actions | Maven | Docker</p>
+                      <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2 mt-0.5">
+                        <li>Built end-to-end CI/CD pipelines for Java microservices with automated testing</li>
+                        <li>Configured Jenkins jobs with parameterized builds and automated triggers</li>
+                        <li>Set up Jenkins master-slave architecture for distributed builds</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Certificate Automation System</h3>
+                      <p className="text-xs text-gray-600 italic">Python | Streamlit | Gmail API | Docker | AWS EC2</p>
+                      <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2 mt-0.5">
+                        <li>Developed automated certificate generation system for EdTech platform</li>
+                        <li>Integrated Gmail API for email distribution and PDF generation</li>
+                        <li>Containerized with Docker and deployed on AWS EC2</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Task Management System</h3>
+                      <p className="text-xs text-gray-600 italic">Spring Boot | MySQL | Docker | GitHub Actions</p>
+                      <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2 mt-0.5">
+                        <li>Built backend using Spring MVC with RESTful APIs for task management</li>
+                        <li>Containerized application and automated deployment with GitHub Actions</li>
+                        <li>Integrated Gmail-based reminder system and MySQL database</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Video Streaming Platform</h3>
+                      <p className="text-xs text-gray-600 italic">Spring Boot | React | Docker | MySQL</p>
+                      <ul className="list-disc list-inside space-y-0.5 text-gray-700 ml-2 mt-0.5">
+                        <li>Developed responsive platform with user authentication and video streaming</li>
+                        <li>Implemented efficient storage/retrieval and optimized API performance</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Additional Information */}
+                <section>
+                  <h2 className="text-sm font-bold bg-blue-700 text-white px-2 py-1 mb-2">ADDITIONAL INFORMATION</h2>
+                  <p className="text-gray-700"><strong>Strengths:</strong> Quick learner, Problem-solving, Team collaboration, Automation mindset</p>
+                  <p className="text-gray-700 mt-1"><strong>Interests:</strong> Cloud architecture, DevOps automation, Learning new technologies</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="no-print text-center mt-4 text-sm text-gray-600 pb-4">
+          <p>Click "Download/Print as PDF" button and select "Save as PDF" in print dialog</p>
+          <p className="mt-1">Or use Ctrl+P (Windows) / Cmd+P (Mac)</p>
+        </div>
+      </div>
+    </>
+  );
+}
