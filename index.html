@@ -1,418 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyas Sonawane - AWS DevOps Resume</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Calibri', 'Arial', sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-        
-        .download-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            z-index: 1000;
-        }
-        
-        .download-btn:hover {
-            background: #000;
-        }
-        
-        .resume-container {
-            max-width: 210mm;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        #resume-content {
-            width: 210mm;
-            height: 297mm;
-            padding: 15mm;
-            font-size: 10.5pt;
-            color: #333;
-        }
-        
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .header h1 {
-            font-size: 22pt;
-            margin-bottom: 5px;
-            color: #000;
-        }
-        
-        .header .contact {
-            font-size: 9pt;
-            color: #555;
-            line-height: 1.4;
-        }
-        
-        .header .contact a {
-            color: #555;
-            text-decoration: none;
-        }
-        
-        .header .contact a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-        
-        .section {
-            margin-bottom: 12px;
-        }
-        
-        .section-title {
-            font-size: 12pt;
-            font-weight: bold;
-            color: #000;
-            border-bottom: 1px solid #333;
-            padding-bottom: 3px;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-        
-        .two-column {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .left-column {
-            width: 30%;
-        }
-        
-        .right-column {
-            width: 70%;
-        }
-        
-        .content-text {
-            font-size: 9.5pt;
-            line-height: 1.4;
-            text-align: justify;
-        }
-        
-        .skill-group {
-            margin-bottom: 6px;
-            font-size: 9.5pt;
-        }
-        
-        .skill-group strong {
-            color: #000;
-        }
-        
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3px;
-        }
-        
-        .job-title {
-            font-weight: bold;
-            font-size: 10pt;
-        }
-        
-        .company {
-            font-size: 9pt;
-            color: #555;
-        }
-        
-        .date {
-            font-size: 9pt;
-            color: #666;
-            white-space: nowrap;
-        }
-        
-        .experience-item {
-            margin-bottom: 10px;
-        }
-        
-        .experience-item ul {
-            margin-left: 18px;
-            margin-top: 3px;
-        }
-        
-        .experience-item li {
-            margin-bottom: 2px;
-            font-size: 9.5pt;
-            line-height: 1.3;
-        }
-        
-        .project-item {
-            margin-bottom: 8px;
-        }
-        
-        .project-title {
-            font-weight: bold;
-            font-size: 9.5pt;
-        }
-        
-        .project-tech {
-            font-size: 8.5pt;
-            color: #666;
-            font-style: italic;
-        }
-        
-        .project-item ul {
-            margin-left: 18px;
-            margin-top: 2px;
-        }
-        
-        .project-item li {
-            font-size: 9pt;
-            line-height: 1.3;
-            margin-bottom: 1px;
-        }
-        
-        .edu-item {
-            margin-bottom: 5px;
-            font-size: 9.5pt;
-        }
-        
-        .edu-item strong {
-            display: block;
-        }
-        
-        .simple-list {
-            margin-left: 18px;
-        }
-        
-        .simple-list li {
-            margin-bottom: 2px;
-            font-size: 9pt;
-        }
-        
-        .instructions {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .download-btn, .instructions {
-                display: none;
-            }
-            .resume-container {
-                box-shadow: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreyas Sonawane – AWS & DevOps Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0e1a;
+      --surface: #111827;
+      --surface2: #1a2235;
+      --border: #1e2d45;
+      --accent: #00c6ff;
+      --accent2: #7b61ff;
+      --text: #e8edf5;
+      --muted: #7a8ba5;
+      --tag-bg: #0d1f35;
+      --tag-border: #1b3a5c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,198,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,198,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glowing orbs */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,198,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb2 {
+      position: fixed;
+      bottom: -200px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(123,97,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── HEADER ─────────────────────────────────── */
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(0,198,255,0.1), rgba(123,97,255,0.1));
+      border: 1px solid rgba(0,198,255,0.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .badge::before { content: '▸'; }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #ffffff 0%, #a8c8e8 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .contact a:hover { border-color: var(--accent); }
+
+    .contact span { display: flex; align-items: center; gap: 5px; }
+
+    /* ─── SECTION ────────────────────────────────── */
+    section {
+      margin-bottom: 44px;
+      animation: fadeUp 0.7s ease both;
+    }
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.15s; }
+    section:nth-child(4) { animation-delay: 0.2s; }
+    section:nth-child(5) { animation-delay: 0.25s; }
+    section:nth-child(6) { animation-delay: 0.3s; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-label h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* ─── SUMMARY ────────────────────────────────── */
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #b8c8d8;
+      position: relative;
+      overflow: hidden;
+    }
+    .summary-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* ─── SKILLS ─────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+
+    .skill-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-item:hover {
+      border-color: rgba(0,198,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    .skill-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .skill-value {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #8ab4d0;
+      margin: 2px 2px 2px 0;
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────────── */
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+    .exp-card:hover { border-color: rgba(0,198,255,0.25); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(0,198,255,0.08);
+      border: 1px solid rgba(0,198,255,0.2);
+      border-radius: 100px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exp-bullets li {
+      display: flex;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #9ab0c8;
+      line-height: 1.65;
+    }
+
+    .exp-bullets li::before {
+      content: '→';
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ─── PROJECTS ───────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 640px) { .projects-grid { grid-template-columns: 1fr; } }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(0,198,255,0.3);
+      transform: translateY(-3px);
+    }
+    .project-card:hover::after { opacity: 1; }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .project-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .project-bullets li {
+      font-size: 12.5px;
+      color: #7a90a8;
+      line-height: 1.6;
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-bullets li::before {
+      content: '·';
+      color: var(--accent2);
+      font-size: 18px;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    /* ─── EDUCATION ──────────────────────────────── */
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    @media (max-width: 500px) { .edu-card { grid-template-columns: 1fr; } }
+
+    .edu-degree {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .edu-right { text-align: right; }
+
+    @media (max-width: 500px) { .edu-right { text-align: left; } }
+
+    .cgpa {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .cgpa-label {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .cert-row, .achieve-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .cert-badge {
+      background: linear-gradient(135deg, rgba(0,198,255,0.08), rgba(123,97,255,0.08));
+      border: 1px solid rgba(0,198,255,0.2);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #a0bcd4;
+    }
+
+    .achieve-badge {
+      background: rgba(123,97,255,0.08);
+      border: 1px solid rgba(123,97,255,0.2);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #a0a0d4;
+    }
+
+    .row-label {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    /* ─── ANIMATION ──────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── PRINT ──────────────────────────────────── */
+    @media print {
+      body { background: white; color: black; }
+      body::before, body::after, .orb2 { display: none; }
+      .skill-item, .exp-card, .project-card, .summary-card, .edu-card {
+        border-color: #ddd !important;
+        background: white !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
-    
-    <div class="resume-container">
-        <div id="resume-content">
-            <div class="header">
-                <h1>SHREYAS SANTOSH SONAWANE</h1>
-                <div class="contact">
-                    <a href="tel:+919022749704">+91-9022749704</a> | 
-                    <a href="mailto:shreyassonawane135@gmail.com">shreyassonawane135@gmail.com</a> | 
-                    Pune, Maharashtra<br>
-                    LinkedIn: <a href="https://linkedin.com/in/shreyas-sonawane-63a22524b/" target="_blank">linkedin.com/in/shreyas-sonawane-63a22524b/</a> | 
-                    GitHub: <a href="https://github.com/shreyas-1357" target="_blank">github.com/shreyas-1357</a>
-                </div>
-            </div>
+<div class="orb2"></div>
+<div class="container">
 
-            <div class="two-column">
-                <div class="left-column">
-                    <div class="section">
-                        <div class="section-title">Professional Summary</div>
-                        <div class="content-text">
-                            AWS and DevOps Engineer with hands-on experience in cloud infrastructure, CI/CD automation, and containerization. Proficient in AWS services, Terraform, Docker, Kubernetes, and Jenkins. Strong background in backend development with Spring Boot and RESTful APIs.
-                        </div>
-                    </div>
+  <!-- HEADER -->
+  <header>
+    <div class="badge">AWS &amp; DevOps Engineer</div>
+    <h1>Shreyas Santosh Sonawane</h1>
+    <div class="contact">
+      <span>📍 Pune, Maharashtra</span>
+      <span>📞 +91-9022749704</span>
+      <span>✉️ shreyassonawane135@gmail.com</span>
+    </div>
+    <div class="contact">
+      <a href="https://linkedin.com/in/shreyas-sonawane-63a22524b" target="_blank">↗ LinkedIn</a>
+      <a href="https://github.com/shreyas-1357" target="_blank">↗ GitHub</a>
+    </div>
+  </header>
 
-                    <div class="section">
-                        <div class="section-title">Technical Skills</div>
-                        <div class="skill-group">
-                            <strong>Cloud:</strong> AWS (EC2, S3, VPC, RDS, IAM, CloudWatch, Lambda)
-                        </div>
-                        <div class="skill-group">
-                            <strong>DevOps:</strong> Jenkins, GitHub Actions, Terraform, Ansible, Docker, Kubernetes
-                        </div>
-                        <div class="skill-group">
-                            <strong>Programming:</strong> Python, Bash, Java
-                        </div>
-                        <div class="skill-group">
-                            <strong>Backend:</strong> Spring Boot, RESTful APIs
-                        </div>
-                        <div class="skill-group">
-                            <strong>Database:</strong> MySQL, MongoDB
-                        </div>
-                        <div class="skill-group">
-                            <strong>OS:</strong> Linux, Windows Server
-                        </div>
-                    </div>
+  <!-- SUMMARY -->
+  <section>
+    <div class="section-label"><h2>Summary</h2></div>
+    <div class="summary-card">
+      AWS &amp; DevOps Engineer with hands-on experience building and managing cloud infrastructure, automating CI/CD pipelines, and deploying containerized workloads on AWS. Proficient in Terraform, Docker, Kubernetes, Jenkins, and core AWS services. Skilled in infrastructure automation, CI/CD automation, and implementing DevOps best practices to improve deployment reliability, optimize cloud costs, and accelerate software delivery.
+    </div>
+  </section>
 
-                    <div class="section">
-                        <div class="section-title">Education</div>
-                        <div class="edu-item">
-                            <strong>B.E. Electronics and Computer</strong>
-                            Amrutvahini College of Engineering<br>
-                            CGPA: 8.80/10 | 2021-2025
-                        </div>
-                        <div class="edu-item">
-                            <strong>HSC</strong>
-                            Shree Ganesh Junior College<br>
-                            86% | 2021
-                        </div>
-                    </div>
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label"><h2>Technical Skills</h2></div>
+    <div class="skills-grid">
 
-                    <div class="section">
-                        <div class="section-title">Research Work</div>
-                        <div class="content-text">
-                            <strong>Morse Code-Based Survival Beacon Using LoRa Module</strong><br>
-                            Developed an emergency communication system using ESP32 microcontroller and LoRa technology for long-range, low-power signal transmission in critical scenarios.
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Certifications</div>
-                        <ul class="simple-list">
-                            <li>AWS and DevOps Training</li>
-                            <li>Docker and Kubernetes</li>
-                            <li>Terraform for IaC</li>
-                            <li>Spring Boot and Java</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="right-column">
-                    <div class="section">
-                        <div class="section-title">Professional Experience</div>
-                        
-                        <div class="experience-item">
-                            <div class="job-header">
-                                <div>
-                                    <div class="job-title">AWS & DevOps Engineer (OJT)</div>
-                                    <div class="company">Cipheren Technology, Pune</div>
-                                </div>
-                                <div class="date">Dec 2024 - Mar 2025</div>
-                            </div>
-                            <ul>
-                                <li>Designed AWS infrastructure using EC2, S3, VPC, RDS, and IAM for development environments</li>
-                                <li>Built CI/CD pipelines with Jenkins and GitHub Actions for automated deployments</li>
-                                <li>Automated infrastructure provisioning using Terraform modules</li>
-                                <li>Containerized applications with Docker and deployed on AWS EC2</li>
-                                <li>Configured CloudWatch monitoring and implemented security policies</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="job-header">
-                                <div>
-                                    <div class="job-title">Java Backend Intern</div>
-                                    <div class="company">Motion Cut Pvt. Ltd, Remote</div>
-                                </div>
-                                <div class="date">Dec 2023 - Jan 2024</div>
-                            </div>
-                            <ul>
-                                <li>Developed RESTful APIs using Spring Boot and JPA for backend services</li>
-                                <li>Integrated microservices into Docker containers</li>
-                                <li>Set up CI using Git, GitHub, and Maven for automated builds</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Key Projects</div>
-                        
-                        <div class="project-item">
-                            <div class="project-title">Multi-Region Cloud Infrastructure Deployment</div>
-                            <div class="project-tech">Terraform, AWS CloudFormation, VPC, EC2, S3, RDS</div>
-                            <ul>
-                                <li>Architected and deployed scalable multi-tier infrastructure across 2 AWS regions using Infrastructure-as-Code</li>
-                                <li>Implemented automated disaster recovery with cross-region replication and backup strategies</li>
-                                <li>Reduced infrastructure provisioning time by 70% through reusable Terraform modules and automated deployment pipelines</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-item">
-                            <div class="project-title">Enterprise CI/CD Pipeline with Blue-Green Deployment</div>
-                            <div class="project-tech">Jenkins, Docker, Kubernetes, GitHub Actions, Maven, SonarQube</div>
-                            <ul>
-                                <li>Designed end-to-end CI/CD pipeline for microservices architecture serving 10,000+ daily users</li>
-                                <li>Implemented blue-green deployment strategy reducing production downtime to zero</li>
-                                <li>Integrated automated testing, code quality checks, and security scanning achieving 95% code coverage</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-item">
-                            <div class="project-title">Cloud Cost Optimization and Monitoring Solution</div>
-                            <div class="project-tech">AWS CloudWatch, Prometheus, Grafana, Lambda, Python</div>
-                            <ul>
-                                <li>Developed automated monitoring and alerting system for 50+ AWS resources with custom dashboards</li>
-                                <li>Implemented cost optimization strategies reducing monthly AWS spending by 35%</li>
-                                <li>Created Lambda functions for automated resource cleanup and right-sizing recommendations</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-item">
-                            <div class="project-title">Containerized Microservices Platform</div>
-                            <div class="project-tech">Kubernetes (EKS), Docker, Helm, Spring Boot, MySQL, Redis</div>
-                            <ul>
-                                <li>Migrated monolithic application to microservices architecture with 8 containerized services</li>
-                                <li>Orchestrated deployment using Kubernetes with auto-scaling and load balancing capabilities</li>
-                                <li>Improved application performance by 40% and achieved 99.9% uptime through container orchestration</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Additional Information</div>
-                        <div style="font-size: 9pt;">
-                            <strong>Achievements:</strong> Smart India Hackathon 2024, SunHack International Hackathon 2022
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="skill-item">
+        <div class="skill-label">Cloud &amp; Infrastructure</div>
+        <div class="skill-value">
+          <span class="tag">EC2</span><span class="tag">S3</span><span class="tag">VPC</span><span class="tag">RDS</span><span class="tag">EKS</span><span class="tag">ECR</span><span class="tag">IAM</span><span class="tag">CloudWatch</span><span class="tag">Lambda</span><span class="tag">Route 53</span>
         </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label">DevOps &amp; CI/CD</div>
+        <div class="skill-value">
+          <span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">CI/CD Pipelines</span>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label">Monitoring &amp; Security</div>
+        <div class="skill-value">
+          <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span><span class="tag">AWS Secrets Manager</span><span class="tag">IAM Policies</span>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label">Databases</div>
+        <div class="skill-value">
+          <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Amazon RDS</span>
+        </div>
+      </div>
+
+      <div class="skill-item" style="grid-column: span 2;">
+        <div class="skill-label">Languages &amp; Tools</div>
+        <div class="skill-value">
+          <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Java</span><span class="tag">YAML</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Maven</span><span class="tag">Linux (Ubuntu)</span><span class="tag">RHEL</span><span class="tag">CentOS</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-label"><h2>Professional Experience</h2></div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">AWS &amp; DevOps Engineer</div>
+        <div class="exp-date">Mar 2024 – Mar 2025</div>
+      </div>
+      <div class="exp-company">Cipheren Technology · Pune</div>
+      <ul class="exp-bullets">
+        <li>Assisted in provisioning AWS infrastructure (EC2, VPC, RDS, S3, IAM) for dev and staging environments using Terraform under senior guidance</li>
+        <li>Supported building and maintaining Jenkins &amp; GitHub Actions CI/CD pipelines for microservices, helping reduce manual deployment effort</li>
+        <li>Containerized Spring Boot applications with Docker and assisted in deploying to AWS EKS, contributing to improved deployment consistency</li>
+        <li>Helped configure CloudWatch dashboards and Prometheus/Grafana alerts for basic production monitoring and issue tracking</li>
+        <li>Assisted in implementing IAM policies and Security Groups to follow least-privilege access practices</li>
+        <li>Participated in AWS cost reviews and applied basic resource tagging and rightsizing recommendations to reduce cloud spend</li>
+      </ul>
     </div>
 
-    <div class="instructions">
-        <p>Click "Download PDF" to save your resume or use Ctrl+P / Cmd+P to print</p>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">Java Backend Intern</div>
+        <div class="exp-date">Dec 2023 – Feb 2024</div>
+      </div>
+      <div class="exp-company">Motion Cut Pvt. Ltd · Remote</div>
+      <ul class="exp-bullets">
+        <li>Developed RESTful APIs using Spring Boot &amp; JPA; containerized services with Docker and set up CI builds using Git and Maven</li>
+        <li>Assisted in writing Bash scripts to automate routine deployment and environment setup tasks on Linux servers</li>
+      </ul>
     </div>
+  </section>
 
-    <script>
-        function downloadPDF() {
-            var element = document.getElementById('resume-content');
-            var opt = {
-                margin: 0,
-                filename: 'Shreyas_Sonawane_AWS_DevOps_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPdf: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            
-            html2pdf().set(opt).from(element).save();
-        }
-    </script>
+  <!-- PROJECTS -->
+  <section>
+    <div class="section-label"><h2>Key Projects</h2></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-title">AWS VPC &amp; Multi-Tier Infrastructure Automation</div>
+        <div class="project-tags">
+          <span class="tag">Terraform</span><span class="tag">VPC</span><span class="tag">EC2</span><span class="tag">RDS</span><span class="tag">S3</span><span class="tag">Route 53</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Designed production-grade VPC with public/private subnets, NAT Gateway, and load balancing using Terraform modules across 2 AZs</li>
+          <li>Automated RDS Multi-AZ setup with snapshots and S3 lifecycle policies — RPO &lt; 15 min, 70% faster provisioning</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Jenkins CI/CD Pipeline with Docker &amp; Kubernetes</div>
+        <div class="project-tags">
+          <span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">EKS</span><span class="tag">GitHub</span><span class="tag">ECR</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Built full pipeline: code push → Docker build → ECR push → EKS deploy with blue-green strategy and zero downtime</li>
+          <li>Integrated automated rollback on health-check failure, reducing production incidents by 80%</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">AWS CloudWatch &amp; Grafana Monitoring Stack</div>
+        <div class="project-tags">
+          <span class="tag">CloudWatch</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Lambda</span><span class="tag">Python</span><span class="tag">SNS</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Deployed Prometheus + Grafana on EKS for 30+ services; Lambda auto-remediation for SNS alerts</li>
+          <li>Tuned thresholds cut false-positive alerts 60%; Lambda cleanup reduced monthly AWS bill by 35%</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Infrastructure-as-Code with Terraform &amp; Ansible</div>
+        <div class="project-tags">
+          <span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">RDS</span><span class="tag">IAM</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Developed reusable Terraform modules for VPC, EKS, and RDS; Ansible playbooks for Nginx, Docker, and monitoring agent config</li>
+          <li>Enforced IaC standards with remote state in S3 + DynamoDB locking for safe team collaboration</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-label"><h2>Education &amp; Certifications</h2></div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">B.E. Electronics &amp; Computer Engineering</div>
+        <div class="edu-school">Amrutvahini College of Engineering · 2021 – 2025</div>
+        <div class="row-label">CERTIFICATIONS</div>
+        <div class="cert-row">
+          <span class="cert-badge">☁ AWS &amp; DevOps Training</span>
+          <span class="cert-badge">☕ Spring Boot &amp; Java</span>
+        </div>
+        <div class="row-label">ACHIEVEMENTS</div>
+        <div class="achieve-row">
+          <span class="achieve-badge">🏆 Smart India Hackathon 2024</span>
+          <span class="achieve-badge">🌐 SunHack International 2022</span>
+        </div>
+      </div>
+      <div class="edu-right">
+        <div class="cgpa">8.80</div>
+        <div class="cgpa-label">CGPA / 10</div>
+      </div>
+    </div>
+  </section>
+
+</div>
 </body>
 </html>
